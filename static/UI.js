@@ -67,7 +67,6 @@ class UI {
 	bindEvents() {
 		this.loginButton.addEventListener("click", () => {
 			window.net.logIn(this.getUsername(), (data) => {
-				console.log(data);
 				if (data.status === "LOGIN_VALID - FIRST") {
 					this.destroyLoginBox();
 					this.UIBox.appendChild(this.opponentAwaitBox);
@@ -111,7 +110,6 @@ class UI {
 
 		this.resetButton.addEventListener("click", () => {
 			window.net.reset((data) => {
-				console.log(data);
 				this.setStatus(data.status);
 				this.setStatusMessage(data.status_message);
 			});

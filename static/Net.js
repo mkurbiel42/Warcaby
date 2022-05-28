@@ -46,7 +46,6 @@ class Net {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
 				window.game.currentMove = data.currentMove;
 				window.ui.updateBoardPreview();
 			});
@@ -69,8 +68,6 @@ class Net {
 						}
 					}
 					if (JSON.stringify(data.currentBoard) !== JSON.stringify(window.game.board)) {
-						console.log("Plansza zmieniła się");
-						console.log(data);
 						window.game.board = [...data.currentBoard];
 						window.game.currentMove = data.currentMove;
 						window.game.movePawn(data.lastMove.oldPos, data.lastMove.newPos);

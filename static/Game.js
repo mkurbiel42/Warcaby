@@ -11,7 +11,7 @@ class Game {
 			[0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 0, 0, 0, 0, 0, 0, 0],
 			[0, 1, 0, 1, 0, 1, 0, 1],
-			[1, 0, 1, 0, 1, 0, 1, 0],
+			[1, 0, 1, 0, 1, 0, 1, 0]
 		];
 
 		// this.board = [
@@ -33,7 +33,7 @@ class Game {
 			[1, 0, 1, 0, 1, 0, 1, 0],
 			[0, 1, 0, 1, 0, 1, 0, 1],
 			[1, 0, 1, 0, 1, 0, 1, 0],
-			[0, 1, 0, 1, 0, 1, 0, 1],
+			[0, 1, 0, 1, 0, 1, 0, 1]
 		];
 
 		this.possibleMoves = [];
@@ -55,7 +55,7 @@ class Game {
 		this.camera.updateProjectionMatrix();
 
 		this.axes = new THREE.AxesHelper(1000);
-		this.scene.add(this.axes);
+		//this.scene.add(this.axes);
 
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
 		this.renderer.setClearColor(0x001548);
@@ -153,7 +153,7 @@ class Game {
 		if (Math.abs(jumpX) + Math.abs(jumpZ) > 3)
 			this.capturePawn({
 				x: newPos.x - (newPos.x - oldPos.x) / Math.abs(newPos.x - oldPos.x),
-				z: newPos.z - (newPos.z - oldPos.z) / Math.abs(newPos.z - oldPos.z),
+				z: newPos.z - (newPos.z - oldPos.z) / Math.abs(newPos.z - oldPos.z)
 			});
 
 		movedPawn.info.boardX = newPos.x;
@@ -184,7 +184,7 @@ class Game {
 					{ x: x - i, z: z - i },
 					{ x: x - i, z: z + i },
 					{ x: x + i, z: z - i },
-					{ x: x + i, z: z + i },
+					{ x: x + i, z: z + i }
 				].forEach((field, idx) => {
 					if (
 						field.x > 0 &&
@@ -203,14 +203,16 @@ class Game {
 						{ x: x - i, z: z - i },
 						{ x: x - i, z: z + i },
 						{ x: x + i, z: z - i },
-						{ x: x + i, z: z + i },
+						{ x: x + i, z: z + i }
 					]
 						.filter((field, idx) => !blockedDirections[idx])
-						.filter((field) => field.x >= 0 && field.z >= 0 && field.x <= 7 && field.z <= 7)
+						.filter(
+							(field) => field.x >= 0 && field.z >= 0 && field.x <= 7 && field.z <= 7
+						)
 						.map((field) => {
 							return { boardPos: { x: field.x, z: field.z }, colorId };
 						})
-						.filter((field) => this.board[field.boardPos.z][field.boardPos.x] == 0),
+						.filter((field) => this.board[field.boardPos.z][field.boardPos.x] == 0)
 				];
 			}
 		} else {
@@ -340,14 +342,14 @@ class Game {
 						color: "black",
 						boardX: x,
 						boardZ: z,
-						texture: this.woodTexture(),
+						texture: this.woodTexture()
 					});
 				} else {
 					field = new Field({
 						color: "white",
 						boardX: x,
 						boardZ: z,
-						texture: this.woodTexture(),
+						texture: this.woodTexture()
 					});
 				}
 				field.position.set(Field.size * x, 0, Field.size * z);
@@ -379,7 +381,7 @@ class Game {
 							colorId: one,
 							boardX: x,
 							boardZ: z,
-							texture: this.woodTexture(),
+							texture: this.woodTexture()
 						});
 						break;
 
@@ -389,7 +391,7 @@ class Game {
 							colorId: one,
 							boardX: x,
 							boardZ: z,
-							texture: this.woodTexture(),
+							texture: this.woodTexture()
 						});
 						break;
 
