@@ -1,0 +1,119 @@
+:root {
+	font-size: 22px;
+	--color-accent: hsl(41, 90%, 73%);
+	--color-accent-lighter: hsl(41, 81%, 80%);
+	--color-accent-lighter-transparent: hsla(41, 81%, 80%, 0.55);
+	--color-dark: hsl(0, 0%, 10%);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+#root {
+	position: relative;
+}
+
+#ui {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+}
+
+.blacked-out {
+	background-color: rgba(0, 0, 0, 0.66);
+}
+
+#statusBar {
+	background-color: var(--color-accent);
+	color: var(--color-dark);
+	padding: 0.5em 0.75em;
+	font-size: 1.5em;
+	display: flex;
+	flex-direction: column;
+}
+
+#loginBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	margin: 0 auto;
+	padding: 1.25em;
+	gap: 0.75em;
+	border: 2px solid var(--color-accent);
+	border-radius: 0.25rem;
+	font-size: 1.5em;
+	color: var(--color-accent);
+	top: 50%;
+	transform: translateY(50%);
+}
+
+#loginBox input {
+	border: 1px solid var(--color-accent);
+	font-size: 1.1rem;
+	background-color: transparent;
+	border-radius: 0.25rem;
+	color: var(--color-accent);
+	text-align: center;
+	padding: 0.25rem;
+	transition: 0.2s;
+}
+
+#loginBox input:focus-within {
+	border: 1px solid var(--color-accent);
+}
+
+#loginBox button {
+	font-size: 0.85rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	font-weight: bold;
+	background-color: var(--color-accent);
+	color: var(--color-dark);
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+#loginBox button:hover {
+	background-color: var(--color-accent-lighter);
+}
+
+#loginBox button:active,
+#loginBox button:focus-within,
+#loginBox input:focus-within {
+	box-shadow: 0px 0px 0px 0.25em var(--color-accent-lighter-transparent);
+}
+
+#timerBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	padding: 1.25em;
+	font-size: 2.75em;
+	color: var(--color-accent);
+	top: 50%;
+	transform: translateY(50%);
+}
+
+#timeCounter {
+	font-size: 1.75em;
+}
+
+#boardPreviewBox {
+	position: absolute;
+	bottom: 24px;
+	left: 24px;
+	padding: 0.5em 0.75em;
+	background-color: var(--color-accent);
+	white-space: pre;
+}
